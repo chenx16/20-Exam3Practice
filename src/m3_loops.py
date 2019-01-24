@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Xinlai Chen.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -30,6 +30,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import simple_testing as st
+import math
 import math
 
 
@@ -208,8 +209,20 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    seq = []
+    count=0
+    s=start
+    while True:
+        if (math.sin(s) + math.cos(s)) > threshold:
+            seq = seq + [s]
+            count=count+1
+        s=s+1
+        if count==n:
+            break
+    return seq
+
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
