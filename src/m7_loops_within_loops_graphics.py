@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Xinlai Chen.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -30,6 +30,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -89,8 +90,54 @@ def hourglass(window, n, point, radius, color):
     where n and radius are positive and color is a string that denotes
     a color that rosegraphics understands.
     """
+    x=point.x
+    y=point.y
+    r=radius
+    d=math.sqrt(3*(r**2))
+    for k in range(n):
+        x1=x-r*k
+        y1=y-d*k
+        c = rg.Circle(rg.Point(x1, y1), r)
+        c.fill_color = color
+        c.attach_to(window)
+        for i in range(k):
+            x1=x1+2*r
+            c=rg.Circle(rg.Point(x1,y1),r)
+            c.fill_color=color
+            c.attach_to(window)
+    for k in range(n):
+        x1=x-r*k
+        y1=y+d*k
+        c = rg.Circle(rg.Point(x1, y1), r)
+        c.fill_color = color
+        c.attach_to(window)
+        for i in range(k):
+            x1=x1+2*r
+            c=rg.Circle(rg.Point(x1,y1),r)
+            c.fill_color=color
+            c.attach_to(window)
+    a=x-r
+    b=y
+    l=2*r
+    for k in range(n):
+        x2=a-r*k
+        e=x2
+        y2=b+d*k
+        for i in range(k+1):
+            e=e+l
+            li=rg.Line(rg.Point(e,y2),rg.Point(x2,y2))
+            li.attach_to(window)
+    for k in range(n):
+        x2 = a - r * k
+        e = x2
+        y2 = b - d * k
+        for i in range(k + 1):
+            e = e + l
+            li = rg.Line(rg.Point(e, y2), rg.Point(x2, y2))
+            li.attach_to(window)
+    window.render()
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################

@@ -136,7 +136,17 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ###########################################################################
+    #Test 15
+    expected=practice_problem3(3,7,0.8)
+    actual=[7, 8, 13, 14, 19, 20, 25]
+    print('expected',expected)
+    print('actual',actual)
 
+    #Test 16
+    expected=practice_problem3(3,0,0.5)
+    actual=[]
+    print('expected',expected)
+    print('actual',actual)
 
 def practice_problem3(start, n, threshold):
     """
@@ -213,12 +223,12 @@ def practice_problem3(start, n, threshold):
     count=0
     s=start
     while True:
+        if count==n:
+            break
         if (math.sin(s) + math.cos(s)) > threshold:
             seq = seq + [s]
             count=count+1
         s=s+1
-        if count==n:
-            break
     return seq
 
     ###########################################################################

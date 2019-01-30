@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Xinlai Chen.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -95,6 +95,12 @@ def integers(sequence_of_sequences):
       :type sequence_of_sequences: (list|tuple) of (list|tuple|string)
       :rtype: list of int
     """
+    seq=[]
+    for j in range(len(sequence_of_sequences)):
+        for k in range(len(sequence_of_sequences[j])):
+            if sequence_of_sequences[j][k] is int:
+                seq=seq+sequence_of_sequences[j][k]
+    return seq
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -189,6 +195,8 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
+    st=''
+
     # -------------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
