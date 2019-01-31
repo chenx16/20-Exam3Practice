@@ -228,7 +228,7 @@ def many_hourglasses(window, square, m, colors):
 
     window.render()
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################
