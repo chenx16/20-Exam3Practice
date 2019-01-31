@@ -39,7 +39,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -71,6 +71,19 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
+    # Test 2:
+    expected =[3, 4, 10, 10, 1, 4, 4]
+    answer = integers([(3, 1.0, 4),
+                       (10, 'hi', 10),
+                       [1, 2.5, 0.3, 4],
+                       'hello',
+                       [],
+                       ['oops'],
+                       [[55], [44]],
+                       [3.0, 4]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 
 def integers(sequence_of_sequences):
@@ -98,11 +111,11 @@ def integers(sequence_of_sequences):
     seq=[]
     for j in range(len(sequence_of_sequences)):
         for k in range(len(sequence_of_sequences[j])):
-            if sequence_of_sequences[j][k] is int:
-                seq=seq+sequence_of_sequences[j][k]
+            if type(sequence_of_sequences[j][k]) is int:
+                seq=seq+[sequence_of_sequences[j][k]]
     return seq
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test thiw2s function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -130,7 +143,7 @@ def integers(sequence_of_sequences):
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # done: 4. Implement this TEST function.
     #   It TESTS the  big_letters  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # -------------------------------------------------------------------------
@@ -166,6 +179,19 @@ def run_test_big_letters():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = 'OTSSS'
+    answer = big_letters([(3, 1, 4),  # not a string
+                          'Ok what is ThiSSS?',  # OTSSS
+                          (10, 'Ok what is ThiSSS?', 10),  # not a string
+                          [],  # not a string
+                          ['oops'],  # not a string
+                          'oops',  #
+                          ['OOPS'],  # not a string
+                         []])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def big_letters(sequence_of_sequences):
     """
@@ -196,9 +222,16 @@ def big_letters(sequence_of_sequences):
     Precondition:  the given argument is a sequence of sequences.
     """
     st=''
+    for j in range(len(sequence_of_sequences)):
+        if type(sequence_of_sequences[j]) is str:
+            for k in range(len(sequence_of_sequences[j])):
+                if sequence_of_sequences[j][k].isupper() is True:
+                    st=st+sequence_of_sequences[j][k]
+    return st
+
 
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    #done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
