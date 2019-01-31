@@ -210,6 +210,23 @@ def many_hourglasses(window, square, m, colors):
     where m is positive and colors is a sequence of strings,
     each of which denotes a color that rosegraphics understands.
     """
+    r=square.length_of_each_side//2
+    c=square.center
+    d = math.sqrt(3 * (r ** 2))
+    for k in range(m):
+        c.x = c.x + (1 + 2 * k) * r
+        xl=c.x-r*(k+1)
+        yl=c.y-k*d-r
+        xr = c.x + r * (1+k)
+        yr = c.y + k * d + r
+        re=rg.Rectangle(rg.Point(xl,yl),rg.Point(xr,yr))
+        re.attach_to(window)
+        for i in range(k+1):
+            i = i%len(colors)
+            co = colors[i]
+            hourglass(window, k+1 , rg.Point(c.x, c.y), r, co)
+
+    window.render()
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #       We provided some tests for you (above).
